@@ -1,3 +1,3 @@
 #!/bin/sh
 
-docker build -t hp1000-cups:latest .
+docker build -t hp1018-cups:latest .
