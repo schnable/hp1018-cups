@@ -3,10 +3,12 @@ FROM alpine:3.10
 # install dependencies
 RUN apk add --no-cache cups cups-filters ghostscript eudev grep
 
+COPY foo2zjs.tar.gz /
+
 # https://web.archive.org/web/20150917015611/http://foo2zjs.rkkda.com/foo2zjs.tar.gz
 # install foo2zjs drivers for HP LaserJet 1018
-RUN apk add --no-cache cups-dev build-base groff vim && \
-    wget -O foo2zjs.tar.gz https://web.archive.org/web/20150917015611/http://foo2zjs.rkkda.com/foo2zjs.tar.gz && \
+RUN pwd %% ls && \
+    apk add --no-cache cups-dev build-base groff vim && \
     tar xzf foo2zjs.tar.gz && \
     cd /foo2zjs && \
     make && \
